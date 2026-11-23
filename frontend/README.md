@@ -1,16 +1,8 @@
-# React + Vite
+# Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Supabase setup
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+1. Configure `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in `frontend/.env`.
+2. Run `frontend/supabase/schema.sql` in the Supabase SQL Editor. It creates the application tables, authenticated-user RLS policies, the `store-logos` Storage bucket, and the atomic `create_transaction` function.
+3. Create the admin account under **Authentication → Users** in the Supabase dashboard. The frontend uses that account's email and password; public sign-up is not enabled by the app.
+4. Start the frontend with `npm run dev` from `frontend`. Product, settings, transaction, auth, and logo operations go directly to Supabase.
